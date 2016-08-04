@@ -1,0 +1,19 @@
+<div id="exp-1">
+    hello {{name}}
+</div>
+
+<script src="vue.js" charset="utf-8"></script>
+<script>
+// 这是我们的 Model
+var expData = {
+    name: 'Vue.js'
+}
+
+// 创建一个 Vue 实例或 "ViewModel"
+// 它连接 View 与 Model
+var empVM = new Vue({
+    el: '#exp-1',
+    data: expData
+})
+
+</script>

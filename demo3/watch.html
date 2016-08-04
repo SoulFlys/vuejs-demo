@@ -1,0 +1,38 @@
+<div id="demo">
+    {{fullName}}
+</div>
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#demo',
+        data: {
+            firstName: 'ha',
+            lastName: 'xiao',
+            fullName: ''
+        }
+    });
+
+    vm.$watch('firstName', function(val) {
+        console.log(val);
+        this.fullName = val + ' ' + this.lastName;
+    });
+
+    vm.$watch('lastName', function(val) {
+        console.log(val);
+        this.fullName = this.firstName + ' ' + val
+    });
+
+    //上面代码是命令式的重复的。跟计算属性对比
+
+    // var vm = new Vue({
+    //     data: {
+    //         firstName: 'Foo',
+    //         lastName: 'Bar'
+    //     },
+    //     computed: {
+    //         fullName: function() {
+    //             return this.firstName + ' ' + this.lastName
+    //         }
+    //     }
+    // })
+</script>

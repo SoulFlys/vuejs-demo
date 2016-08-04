@@ -1,0 +1,13 @@
+<div id="demo" v-bind:style="styleObj">123</div>
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#demo',
+        data: {
+            styleObj: {
+                color:'red',
+                transform:'translateX(50px)'
+            }
+        }
+    });
+</script>

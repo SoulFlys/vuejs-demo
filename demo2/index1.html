@@ -1,0 +1,13 @@
+<div id="exp-2">
+    <p v-if="greeting">Hello!</p>
+</div>
+
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var exp2VM = new Vue({
+        el: '#exp-2',
+        data: {
+            greeting: true  //控制台 exp2VM.greeting = false则p消失
+        }
+    });
+</script>
