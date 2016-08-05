@@ -1,0 +1,24 @@
+<ul id="exp-1">
+    <template v-for="item in items">
+        <li>{{item.message}}</li>
+        <li class="divider">
+            <hr>
+        </li>
+    </template>
+</ul>
+
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var exp1 = new Vue({
+        el: '#exp-1',
+        data: {
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ]
+        }
+    });
+
+    //console
+    //exp1.items.push({message:'xiaofang'})
+</script>

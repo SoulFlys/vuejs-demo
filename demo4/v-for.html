@@ -1,0 +1,35 @@
+<ul id="exp-1">
+    <li v-for="item in items">
+        {{ parentMessage }} - {{ $index }} - {{item.message}}
+    </li>
+</ul>
+
+<ul id="exp-2">
+    <li v-for="(index,item) in items">
+        {{ parentMessage }} - {{ index }} - {{item.message}}
+    </li>
+</ul>
+
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var exp1 = new Vue({
+        el: '#exp-1',
+        data: {
+            parentMessage: 'Parent',
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ]
+        }
+    });
+    var exp2 = new Vue({
+        el: '#exp-2',
+        data: {
+            parentMessage: 'Parent',
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ]
+        }
+    });
+</script>

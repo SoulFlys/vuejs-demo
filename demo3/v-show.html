@@ -1,0 +1,17 @@
+<div id="app">
+    <template v-if="ok">
+        <h1>title</h1>
+        <p>content1</p>
+        <p>content2</p>
+    </template>
+</div>
+
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            ok: true
+        }
+    });
+</script>

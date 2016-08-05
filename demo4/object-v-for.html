@@ -1,0 +1,46 @@
+<ul id="app" class="demo">
+    <li v-for="value in object">
+        {{$key}} : {{value}}
+    </li>
+</ul>
+
+<ul id="app1" class="demo">
+    <li v-for="(key,val) in object">
+        {{key}} : {{val}}
+    </li>
+</ul>
+
+<div id="app2">
+    <span v-for="n in a">
+        {{n}}
+    </span>
+</div>
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            object: {
+                name: 'xiaofang',
+                age: 22
+            }
+        }
+    });
+
+    var vm1 = new Vue({
+        el: '#app1',
+        data: {
+            object: {
+                name: 'xiaofang',
+                age: 22
+            }
+        }
+    });
+
+    var vm2 = new Vue({
+        el: '#app2',
+        data: {
+            a: 5
+        }
+    });
+</script>

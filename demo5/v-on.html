@@ -1,0 +1,39 @@
+<div id="app">
+    <button v-on:click="greet">Greet</button>
+</div>
+
+<div id="app1">
+    <button v-on:click="say('hi',$event)">say hi</button>
+    <button v-on:click="say('what',$event)">say what</button>
+</div>
+
+
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue.js'
+        },
+        methods: {
+            greet: function(event) {
+                console.log(this);
+                console.log(event);
+                console.log(this.name);
+                console.log(event.target.tagName);
+            }
+        }
+    });
+
+
+    var vm1 = new Vue({
+        el: '#app1',
+        methods: {
+            say: function(msg,event) {
+                console.log(msg);
+                console.log(event)
+                event.preventDefault();
+            }
+        }
+    });
+</script>
