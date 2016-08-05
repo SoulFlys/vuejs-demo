@@ -1,0 +1,44 @@
+<div id="app">
+    <p v-show="show" transition="fade">hello world</p>
+    <button v-on:click="toggle">toggle</button>
+</div>
+
+<script src="jquery.min.js" charset="utf-8"></script>
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    Vue.transition('fade', {
+        css: false,
+        enter: function(el, done) {
+            // 元素已被插入 DOM
+            // 在动画结束后调用 done
+            $(el)
+                .css('opacity', 0)
+                .animate({
+                    opacity: 1
+                }, 1000, done)
+        },
+        enterCancelled: function(el) {
+            $(el).stop()
+        },
+        leave: function(el, done) {
+            // 与 enter 相同
+            $(el).animate({
+                opacity: 0
+            }, 1000, done)
+        },
+        leaveCancelled: function(el) {
+            $(el).stop()
+        }
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            show: false,
+        },
+        methods: {
+            toggle: function() {
+                this.show ? this.show = false : this.show = true;
+            }
+        }
+    });
+</script>

@@ -1,0 +1,70 @@
+<div id="app">
+    <child msg="hello 123"></child>
+</div>
+<hr>
+
+<div id="app1">
+    <input v-model="parentMsg">
+    <br>
+    <child1 v-bind:my-message="parentMsg"></child1>
+</div>
+<hr>
+
+<div id="demo">
+    <input v-model="tmp">
+    <br>
+    <demo v-bind:ceshi="tmp"></demo>
+</div>
+
+
+<!-- 默认为单向绑定 -->
+<child :msg="parentMsg1"></child>
+
+<!-- 双向绑定 -->
+<child :msg.sync="parentMsg1"></child>
+
+<!-- 单次绑定 -->
+<child :msg.once="parentMsg1"></child>
+
+
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    Vue.component('child', {
+        props: ['msg'],
+        template: '<span>{{msg}}</span>'
+    });
+
+    var vm = new Vue({
+        el: '#app'
+    });
+
+
+    //HTML 特性不区分大小写。名字形式为 camelCase 的 prop 用作特性时，需要转为 kebab-case（短横线隔开）：
+    var vm1 = new Vue({
+        el: '#app1',
+        data: {
+            parentMsg: 'Message from parent'
+        },
+        components: {
+            child1: {
+                props: ['myMessage'],
+                template: '<span>{{myMessage}}</span>'
+            }
+        }
+    });
+
+
+
+    var vm2 = new Vue({
+        el: '#demo',
+        data: {
+            tmp: 'wo shi xiaofang'
+        },
+        components: {
+            demo: {
+                props: ['ceshi'],
+                template: '<span>{{ceshi}}</span>'
+            }
+        }
+    });
+</script>

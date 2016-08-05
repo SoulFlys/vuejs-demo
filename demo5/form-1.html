@@ -1,0 +1,39 @@
+<div id="app">
+    <input type="radio" v-model="picked" value="0">xiaofang
+    <p>{{picked}}</p>
+    <hr>
+
+    <input type="checkbox" v-model="toggle">
+    <p>{{toggle}}</p>
+    <hr>
+
+    <select v-model="select">
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+    </select>
+    <p>{{select}}</p>
+    <hr>
+
+    <input v-model="age" number>
+    <p>{{age}}</p>
+    <hr>
+
+    <!-- （例如在输入提示中 Ajax 请求），它较为有用 -->
+    <input v-model="msg" debounce="500">
+    <p>{{msg}}</p>
+</div>
+
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            picked: '',
+            toggle: false,
+            select: 'b',
+            age: '',
+            msg: 'hahahah'
+        }
+    })
+</script>

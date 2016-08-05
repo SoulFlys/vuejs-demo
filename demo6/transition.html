@@ -1,0 +1,36 @@
+<style>
+    /* 必需 */
+
+    .aaa-transition {
+        transition: all .3s ease;
+        height: 30px;
+        padding: 10px;
+        background-color: #eee;
+        overflow: hidden;
+    }
+    /* .expand-enter 定义进入的开始状态 */
+    /* .expand-leave 定义离开的结束状态 */
+
+    .aaa-enter,
+    .aaa-leave {
+        height: 0;
+        padding: 0 10px;
+        opacity: 0;
+    }
+</style>
+<div id="app">
+    <div v-if="show" transition="aaa">hello</div>
+</div>
+
+<script src="vue.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            show: false,
+            // aaa: 'fade'
+        }
+    });
+    //console
+    //vm.show = true 观察效果变化
+</script>
