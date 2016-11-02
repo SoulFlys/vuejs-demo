@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    li{background:red;margin:10px 0;}
+    span{background:green;font-size:22px;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in items" @click="toggle(item,$event)">
+                <span v-show="item.show">{{item.content}}</span>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var vm =new Vue({
+            el:"#app",
+            data:{
+                items: [
+                    {content:1,show:true},
+                    {content:2,show:true},
+                    {content:3,show:true},
+                ]
+            },
+            methods:{
+                toggle:function(item,e){
+                    item.show = !item.show;
+                    console.log(item)
+                    console.log(e)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
